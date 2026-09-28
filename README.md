@@ -25,7 +25,7 @@ These are data-preparation steps. The repository does not yet report a trained m
 
 The notebooks read local files under `data/v1/`, which are **not included** in this repository. To rerun the v1 notebook, supply the four FBref CSVs expected in `data/v1/fbref/` (`std`, `Playing Time`, `Shooting`, and `Miscellaneous` for 2024–25), a player-ID mapping database, and the generated `data/v1/id_pair.csv`. The notebook uses relative paths, so run it from `notebooks/v1/`. It also makes live API requests for market-value histories; responses can change or become unavailable.
 
-The 2024–25 player statistics came from the [Football Players Stats 2024–2025 dataset on Kaggle](https://www.kaggle.com/datasets/hubertsidorowicz/football-players-stats-2024-2025). The ID mapping and market-value history are separate inputs. The committed notebook outputs show the analysis state, but this is not yet a one-command reproducible pipeline.
+The 2024–25 player statistics were collected by downloading the relevant tables directly from FBref. The ID mapping and market-value history are separate inputs. The committed notebook outputs show the analysis state, but this is not yet a one-command reproducible pipeline.
 
 ## Earlier performance analysis
 

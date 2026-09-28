@@ -1,6 +1,6 @@
 # V1 market-value data preparation
 
-This folder contains exploratory notebooks for joining 2024–25 player statistics with historical market values. The main result so far is a prepared dataset of 180 forwards with more than 500 minutes played. It does not contain a trained valuation model or model evaluation.
+This folder contains exploratory notebooks for joining 2024–25 player statistics with historical market values. The main result so far is a prepared dataset of 180 unique forwards (one row per player) with more than 500 minutes played. It does not contain a trained valuation model or model evaluation.
 
 ## Notebook order and purpose
 
@@ -19,6 +19,6 @@ The notebooks expect local inputs under `../../data/v1/` when launched from this
 - `fbref/Big5 2024-2025 Miscellaneous.csv`
 - `reep-register-v1.duckdb` from the [Reep football entity register](https://github.com/withqwerty/reep) for `get_id_pair.ipynb`; the notebook generates `id_pair.csv` from it.
 
-Those source files are not committed. The main notebook also makes live API requests and includes a few manual corrections to unmatched IDs or missing historical values. The saved outputs document the current exploration, but the notebooks cannot be rerun from a fresh clone without obtaining the source data and mapping database first.
+Those source files are not committed. The main notebook requests market-value histories from `tmapi.transfermarkt.technology` and includes a few manual corrections to unmatched IDs or missing historical values. The saved outputs document the current exploration, but the notebooks cannot be rerun from a fresh clone without obtaining the source data and mapping database first.
 
 The train/test split, IQR clipping, feature removal, and standardization are preparation for later modeling. They are not evidence of a completed prediction model.

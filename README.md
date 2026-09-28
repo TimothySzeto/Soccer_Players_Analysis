@@ -8,7 +8,7 @@ An ongoing analysis of football player performance and market value. The current
 
 - Merged FBref standard, playing-time, shooting, and miscellaneous statistics by player ID and club.
 - Matched FBref IDs to Transfermarkt IDs using a DuckDB mapping table, then queried historical market values through an API.
-- Selected forwards with more than 500 minutes played, producing 180 records for the 2024–25 analysis.
+- Selected forwards with more than 500 minutes played, producing 180 unique players (one row per player) for the 2024–25 analysis.
 - Split the data into training and test sets, examined feature correlations, clipped outliers using training-set IQR bounds, removed selected features, and fit a standard scaler on the training set.
 
 These are data-preparation steps. The repository does not yet report a trained model, prediction accuracy, or a ranking of players by overvaluation.
@@ -23,7 +23,7 @@ These are data-preparation steps. The repository does not yet report a trained m
 
 ## Data and reproducibility
 
-The notebooks read local files under `data/v1/`, which are **not included** in this repository. To rerun the v1 notebook, supply the four FBref CSVs expected in `data/v1/fbref/` (`std`, `Playing Time`, `Shooting`, and `Miscellaneous` for 2024–25), a player-ID mapping database, and the generated `data/v1/id_pair.csv`. The notebook uses relative paths, so run it from `notebooks/v1/`. It also makes live API requests for market-value histories; responses can change or become unavailable.
+The notebooks read local files under `data/v1/`, which are **not included** in this repository. To rerun the v1 notebook, supply the four FBref CSVs expected in `data/v1/fbref/` (`std`, `Playing Time`, `Shooting`, and `Miscellaneous` for 2024–25), a player-ID mapping database, and the generated `data/v1/id_pair.csv`. The notebook uses relative paths, so run it from `notebooks/v1/`. It also requests market-value histories from the `tmapi.transfermarkt.technology` endpoint used in the notebook; responses can change or become unavailable.
 
 The 2024–25 player statistics were collected by downloading the relevant tables directly from FBref. The FBref–Transfermarkt ID mapping comes from the [Reep football entity register](https://github.com/withqwerty/reep); market-value history is a separate input. The committed notebook outputs show the analysis state, but this is not yet a one-command reproducible pipeline.
 

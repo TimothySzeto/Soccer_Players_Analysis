@@ -17,7 +17,7 @@ The notebooks expect local inputs under `../../data/v1/` when launched from this
 - `fbref/Big5 2024-2025 Playing Time.csv`
 - `fbref/Big5 2024-2025 Shooting.csv`
 - `fbref/Big5 2024-2025 Miscellaneous.csv`
-- `reep-register-v1.duckdb` for `get_id_pair.ipynb`; the notebook generates `id_pair.csv` from it.
+- `reep-register-v1.duckdb` from the [Reep football entity register](https://github.com/withqwerty/reep) for `get_id_pair.ipynb`; the notebook generates `id_pair.csv` from it.
 
 Those source files are not committed. The main notebook also makes live API requests and includes a few manual corrections to unmatched IDs or missing historical values. The saved outputs document the current exploration, but the notebooks cannot be rerun from a fresh clone without obtaining the source data and mapping database first.
 
